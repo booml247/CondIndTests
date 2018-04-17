@@ -1,11 +1,11 @@
-4639c06aec3bf2575b6c6075748c39e9 *DESCRIPTION
+5834dea1a833acff9753186dbe9ff289 *DESCRIPTION
 85650790f8e51ea16b0b7340e2317203 *NAMESPACE
 6a0745a2da1e95ff74059b1d41f27e16 *R/CondIndTest.R
 6a7cdcb7d3d522e0a15cffd08095b96b *R/InvariantConditionalQuantilePrediction.R
-40436cd26ecf36a2c9d6b9305d0cfdc7 *R/InvariantEnvironmentPrediction.R
+ab689c6c205dbf01ef4001a1da15d109 *R/InvariantEnvironmentPrediction.R
 f9cc2eb8191cfb7703913386038fd5cb *R/InvariantResidualDistributionTest.R
-18e9c5190f4c3b9aa4a6cb75f60d1404 *R/InvariantTargetPrediction.R
-469dc5db36561718598c6b9b3640d696 *R/KCI.R
+d4315e68e41e03dea3c583e96526c596 *R/InvariantTargetPrediction.R
+969da01e7ad24fb056332ba020195fa8 *R/KCI.R
 32c39bf15675a80a40c903ccd6d6d208 *R/ResidualPredictionTest.R
 4f4772476764e0b9922dd50fc4c2186d *R/computeBasis.R
 01bffa5aac2ca1486f0659ad3a94cfc0 *R/dist2.R
@@ -27,7 +27,7 @@ d1c5c50bb7b2aad84b868464bbc3e771 *R/rfTargetY.R
 9ce7df422c19b7bc62079dc09983879e *man/InvariantEnvironmentPrediction.Rd
 315da76c5834730a32e395a89ad8fe88 *man/InvariantResidualDistributionTest.Rd
 f6bb5549a5041267b3b557a942c3d52c *man/InvariantTargetPrediction.Rd
-f1ed142ae0a05f0f96144ad498ebc9d2 *man/KCI.Rd
+31cdc2f7effa98845c587f2235d0a6a5 *man/KCI.Rd
 176fd3aa8e2714805479e7f9ecad45fe *man/ResidualPredictionTest.Rd
 6640bd9247c170a267374ff640443263 *man/fTestTargetY.Rd
 5121a47db8d8869bf4c2034136a6bd43 *man/fishersTestExceedance.Rd
