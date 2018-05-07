@@ -1,8 +1,8 @@
 Package: CondIndTests
 Type: Package
 Title: Nonlinear Conditional Independence Tests
-Version: 0.1.3
-Date: 2018-04-16
+Version: 0.1.4
+Date: 2018-05-07
 Author: Christina Heinze-Deml <heinzedeml@stat.math.ethz.ch>, Jonas Peters <jonas.peters@math.ku.dk>
 Depends: R (>= 3.1.0)
 Maintainer: Christina Heinze-Deml <heinzedeml@stat.math.ethz.ch>
@@ -20,7 +20,8 @@ Imports: methods, randomForest, quantregForest, lawstat, RPtests,
 URL: https://github.com/christinaheinze/nonlinearICP-and-CondIndTests
 BugReports: https://github.com/christinaheinze/nonlinearICP-and-CondIndTests/issues
 RoxygenNote: 6.0.1
+Suggests: testthat
 NeedsCompilation: no
-Packaged: 2018-04-16 11:51:09 UTC; heinzec
+Packaged: 2018-05-07 09:12:36 UTC; heinzec
 Repository: CRAN
-Date/Publication: 2018-04-17 06:18:04 UTC
+Date/Publication: 2018-05-07 12:18:55 UTC

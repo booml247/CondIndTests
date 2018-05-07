@@ -47,19 +47,20 @@ KCI <- function(Y, E, X,
                 nRepBs = 500,
                 lambda = 1E-3,
                 thresh = 1E-5,
-                numEig = if(is.data.frame(Y) | is.matrix(Y)) nrow(Y) else if(is.vector(Y)) length(Y),
+                numEig = NROW(Y),
                 verbose = FALSE){
 
-  if(!is.factor(E)){
-    uE <- unique(E)
-    nruE <- if(is.data.frame(E) | is.matrix(E)) nrow(uE) else if(is.vector(E)) length(uE)
-    if(nruE < 5){
-      warning("E has less than 5 unique values; are you sure that E is not a factor?")
-    }
+  Y <- check_input_single(Y)
+  dimE <- NCOL(E)
+  if(dimE == 1){
+    E <- check_input_single(E, return_vec = TRUE, check_factor = TRUE)
+  }else{
+    E <- check_input_single(E, return_vec = FALSE, check_factor = TRUE)
   }
+  X <- check_input_single(X)
 
   # sample size
-  n <- if(is.data.frame(Y) | is.matrix(Y)) nrow(Y) else if(is.vector(Y)) length(Y)
+  n <- NROW(Y)
 
   # normalize the data
   Y <- scale(Y)
@@ -73,7 +74,7 @@ KCI <- function(Y, E, X,
   rm(XPrime)
 
   # numbers of variables in X
-  d <- ncol(X)
+  d <- NCOL(X)
 
   # kernel width
   if(width == 0){
@@ -95,18 +96,19 @@ KCI <- function(Y, E, X,
   # centralized kernel matrix
   # KYX <- H %*% KYX %*% H
   KYX <- crossprod(H, KYX) %*% H
-
-  if(is.factor(E)){
-    # show(E)
-    # delta kernel for discrete variable E
+  
+  if(is.factor(E) & dimE == 1){
+    # delta kernel for categorical variable E
     Enum <- as.numeric(E)
-    KE <- (Enum^2 == (Enum %*% t(Enum))) %*% diag(n)
-  } else {
+    KE <- sapply(Enum, function(i) i == Enum) %*% diag(n)
+  }else{
+    if(is.data.frame(E) & all(sapply(E, is.factor))){
+      E <- as.matrix(data.frame(lapply(E, function(i) as.numeric(as.character(i)))))
+    }
     E <- scale(E)
     KE <- rbfKernel1(E, c(kernPrecision,1))$kx
-    # centralized kernel matrix
-    # KE <- H %*% KE %*% H
-  }
+  } 
+  # centralized kernel matrix
   KE <- crossprod(H, KE) %*% H
 
   # kernel for conditioning set X
